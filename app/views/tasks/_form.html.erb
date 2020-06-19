@@ -1,0 +1,17 @@
+<%= form_with model: task, local: true do |f| %>
+
+  <div>
+    <%= f.label :title, '任務名稱' %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div>
+    <%= f.label :content, '任務內容' %>
+    <%= f.text_area :content %>
+  </div>
+  
+  <div>
+    <%= f.submit '送出' %>
+  </div>
+  
+<% end %>
