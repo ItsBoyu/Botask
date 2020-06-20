@@ -1,0 +1,16 @@
+<h1>任務列表</h1>
+
+<div>
+  <% @tasks.each do |task| %>
+    <div>
+      <h3><%= link_to task.title, task_path(task.id) %></h3>
+      <%= task.content %> | <%= link_to '修改', edit_task_path(task.id) %> | <%= link_to '刪除', task_path(task.id), method: 'delete' %>
+    </div>
+  <% end %>
+
+  <%= link_to '新增', new_task_path %>
+</div>
+
+
+
+
