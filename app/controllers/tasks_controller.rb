@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     @task.assign_attributes(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: '新增任務成功'
+      redirect_to tasks_path, notice: 'You create a task succesfully!'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: '更新任務成功'
+      redirect_to tasks_path, notice: 'You update the task succesfully!'
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: '刪除任務成功'
+    redirect_to tasks_path, notice: 'You delete the task succesfully!'
   end
 
   private
