@@ -4,11 +4,11 @@
   <% @tasks.each do |task| %>
     <div>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
-      <%= task.content %> | <%= link_to '修改', edit_task_path(task.id) %> | <%= link_to '刪除', task_path(task.id), method: 'delete' %>
+      <%= task.content %> | <%= link_to 'edit', edit_task_path(task.id) %> | <%= link_to 'delete', task_path(task.id), method: 'delete' %>
     </div>
   <% end %>
 
-  <%= link_to '新增', new_task_path %>
+  <%= link_to 'add', new_task_path %>
 </div>
 
 
