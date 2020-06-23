@@ -30,14 +30,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # i18n
 gem 'rails-i18n', '~> 6.0'
-# rubocop
-gem 'rubocop', '~> 0.85.1', require: false
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'rubocop', '~> 0.85.1', require: false
+  gem 'timecop', '~> 0.8.1'
 end
 
 group :development do
