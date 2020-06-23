@@ -31,3 +31,31 @@
 
 en:
   hello: "Hello world"
+  # model
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Validation failed: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Cannot delete record because a dependent %{record} exists
+          has_many: Cannot delete record because dependent %{record} exist
+  # view
+  add: 'add'
+  edit: 'edit'
+  delete: 'delete'
+  Create: 'Create'
+  Update: 'Update'
+  # task
+  tasks:
+    list: 'Tasks List'
+    home: 'Home'
+  task:
+    title: 'Title'
+    content: 'Content'
+    new: 'Create Task'
+    edit: 'Edit Task'
+    submit: '%{action} Task'
+  # notice
+    created: 'You create a task succesfully!'
+    updated: 'You update the task succesfully!'
+    deleted: 'You delete the task succesfully!'

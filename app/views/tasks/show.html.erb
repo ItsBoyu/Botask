@@ -1,2 +1,3 @@
-<h1><%= @task.title %></h1>
-<p><%= @task.content %></p>
+<h2><%= t('task.title') %>： <%= @task.title %></h2>
+<p><%= t('task.content') %>： <%= @task.content %></p>
+<%= link_to t('tasks.home'), root_path %>

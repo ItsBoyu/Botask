@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     @task.assign_attributes(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: 'You create a task succesfully!'
+      redirect_to tasks_path, notice: t('task.created')
     else
       render :new
     end
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: 'You update the task succesfully!'
+      redirect_to tasks_path, notice: t('task.updated')
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: 'You delete the task succesfully!'
+    redirect_to tasks_path, notice: t('task.deleted')
   end
 
   private
