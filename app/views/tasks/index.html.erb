@@ -2,7 +2,7 @@
 
 <div>
   <% @tasks.each do |task| %>
-    <div>
+    <div class='task'>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
       <%= task.content %> | <%= link_to t('edit'), edit_task_path(task.id) %> | <%= link_to t('delete'), task_path(task.id), method: 'delete' %>
     </div>
