@@ -1,2 +1,2 @@
-<h1>新增任務</h1>
-<%= render "form", task: @task %>
+<h1><%= t('task.new') %></h1>
+<%= render "form", task: @task, action: t("Create") %>

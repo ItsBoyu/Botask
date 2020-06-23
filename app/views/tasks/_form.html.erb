@@ -1,17 +1,17 @@
 <%= form_with model: task, local: true do |f| %>
 
   <div>
-    <%= f.label :title %>
+    <%= f.label :title, t('task.title') %>
     <%= f.text_field :title %>
   </div>
   
   <div>
-    <%= f.label :content %>
+    <%= f.label :content, t('task.content') %>
     <%= f.text_area :content %>
   </div>
   
   <div>
-    <%= f.submit %>
+    <%= f.submit t('task.submit', action: action) %>
   </div>
   
 <% end %>

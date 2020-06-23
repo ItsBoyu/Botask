@@ -1,14 +1,14 @@
-<h1>任務列表</h1>
+<h1><%= t('tasks.list') %></h1>
 
 <div>
   <% @tasks.each do |task| %>
     <div>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
-      <%= task.content %> | <%= link_to 'edit', edit_task_path(task.id) %> | <%= link_to 'delete', task_path(task.id), method: 'delete' %>
+      <%= task.content %> | <%= link_to t('edit'), edit_task_path(task.id) %> | <%= link_to t('delete'), task_path(task.id), method: 'delete' %>
     </div>
   <% end %>
 
-  <%= link_to 'add', new_task_path %>
+  <%= link_to t('add'), new_task_path %>
 </div>
 
 
