@@ -39,3 +39,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# rubocop
+/.rubocop.yml
+/.rubocop_todo.yml

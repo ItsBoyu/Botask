@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Task', type: :model, driver: :selenium_chrome, js: true do
@@ -21,6 +23,5 @@ RSpec.describe 'Task', type: :model, driver: :selenium_chrome, js: true do
         expect(task.errors.messages[:title]).to eq ['不能為空白', '過短（最短是 2 個字）']
       end
     end
-
   end
 end
