@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
@@ -12,7 +14,7 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         fill_in 'task_content', with: '新增任務內容'
         click_button I18n.t('task.submit', action: I18n.t('Create'))
       end
-      
+
       it 'User creates a new task' do
         expect(current_url) == root_path
         expect(page).to have_text(I18n.t('task.created'))
@@ -24,7 +26,7 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
     context 'Task Read' do
       before do
         visit root_path
-        click_link '這是必填', { href:"/tasks/#{task.id}" }
+        click_link '這是必填', { href: "/tasks/#{task.id}" }
       end
 
       it 'User views the task' do
@@ -41,7 +43,7 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         fill_in 'task_content', with: '修改任務內容'
         click_button I18n.t('task.submit', action: I18n.t('Update'))
       end
-      
+
       it 'User updates the task' do
         expect(current_url) == root_path
         expect(page).to have_text(I18n.t('task.updated'))
@@ -55,7 +57,7 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         visit root_path
         click_link I18n.t('delete'), { href: "/tasks/#{task.id}" }
       end
-      
+
       it 'User deletes the task' do
         expect(page).to have_text(I18n.t('task.deleted'))
         expect(Task.find_by(id: "#{task.id}")).to be nil

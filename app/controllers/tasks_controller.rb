@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
   before_action :build_task, only: %i[new create]
@@ -36,6 +38,7 @@ class TasksController < ApplicationController
   end
 
   private
+
   def task_params
     params.require(:task).permit(:title,
                                  :content)
@@ -48,5 +51,4 @@ class TasksController < ApplicationController
   def build_task
     @task = Task.new
   end
-
 end
