@@ -19,8 +19,8 @@ zh-TW:
     list: '任務列表'
     home: '首頁'
   task:
-    title: '名稱'
-    content: '內容'
+    title: '任務名稱'
+    content: '任務內容'
     new: '新增任務'
     edit: '修改任務'
     submit: '%{action}任務'
