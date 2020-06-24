@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:show, :edit, :update, :destroy]
-  before_action :build_task, only: [:new, :create]
+  before_action :find_task, only: %i[show edit update destroy]
+  before_action :build_task, only: %i[new create]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(created_at: :desc)
   end
 
   def new; end
