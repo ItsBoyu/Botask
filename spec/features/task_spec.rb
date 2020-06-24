@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
-  let!(:task) { Task.create }
+  let!(:task) { Task.create(title: '這是必填') }
 
   describe 'Basic CRUD' do
     context 'Task Create' do
@@ -24,7 +24,7 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
     context 'Task Read' do
       before do
         visit root_path
-        click_link "/tasks/#{task.id}"
+        click_link '這是必填', { href:"/tasks/#{task.id}" }
       end
 
       it 'User views the task' do

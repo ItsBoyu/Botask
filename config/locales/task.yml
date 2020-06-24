@@ -1,0 +1,6 @@
+zh-TW:
+  activerecord:
+    attributes:
+      task:
+        title: "任務名稱"
+        content: "任務內容"
