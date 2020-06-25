@@ -1,10 +1,18 @@
 <h1><%= t('tasks.list') %></h1>
 
+<small>排序方式：<%= link_to t('task.created_at'), tasks_path(sort_by: 'created_at desc') %> |
+               <%= link_to t('task.end_at'), tasks_path(sort_by: 'end_at') %>
+</small>
+
 <div>
   <% @tasks.each do |task| %>
     <div class='task'>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
-      <%= task.content %> | <%= link_to t('edit'), edit_task_path(task.id) %> | <%= link_to t('delete'), task_path(task.id), method: 'delete' %>
+      <%= task.content %> |
+      <%= task.start_at.strftime("%m-%d-%Y") %> |
+      <%= task.end_at.strftime("%m-%d-%Y") %> |
+      <%= link_to t('edit'), edit_task_path(task.id) %> |
+      <%= link_to t('delete'), task_path(task.id), method: 'delete' %>
     </div>
   <% end %>
 

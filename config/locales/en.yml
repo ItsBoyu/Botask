@@ -39,6 +39,16 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+      models:
+        task:
+          should_start_before_end: 'should after start_at time.'
+    attributes:
+      task:
+        title: 'Title'
+        content: 'Content'
+        created_at: 'Created_at'
+        start_at: 'Start_at'
+        end_at: 'End_at'
   # view
   add: 'add'
   edit: 'edit'
@@ -52,6 +62,9 @@ en:
   task:
     title: 'Title'
     content: 'Content'
+    created_at: 'Created_at'
+    start_at: 'Start_at'
+    end_at: 'End_at'
     new: 'Create Task'
     edit: 'Edit Task'
     submit: '%{action} Task'

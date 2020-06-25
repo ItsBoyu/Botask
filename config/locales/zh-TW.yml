@@ -8,6 +8,16 @@ zh-TW:
         restrict_dependent_destroy:
           has_one: 由於 %{record} 需要此記錄，所以無法移除記錄
           has_many: 由於 %{record} 需要此記錄，所以無法移除記錄
+      models:
+        task:
+          should_start_before_end: '不能早於開始時間'
+    attributes:
+      task:
+        title: '任務名稱'
+        content: '任務內容'
+        created_at: '建立時間'
+        start_at: '開始時間'
+        end_at: '結束時間'
   # view
   add: '新增'
   edit: '修改'
@@ -21,6 +31,9 @@ zh-TW:
   task:
     title: '任務名稱'
     content: '任務內容'
+    created_at: '建立時間'
+    start_at: '開始時間'
+    end_at: '結束時間'
     new: '新增任務'
     edit: '修改任務'
     submit: '%{action}任務'
