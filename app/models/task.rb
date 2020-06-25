@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   validates :title, :start_at, :end_at, presence: true
   validates :title, length: { minimum: 2 }
 
-  scope :in_sort, ->(sort_by) { order(sort_by) }
+  scope :in_sort, ->(sort_by) { order(sort_by || 'created_at desc') }
 
   private
 
