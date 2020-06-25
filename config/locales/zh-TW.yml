@@ -16,6 +16,7 @@ zh-TW:
         title: '任務名稱'
         content: '任務內容'
         created_at: '建立時間'
+        status: '狀態'
         start_at: '開始時間'
         end_at: '結束時間'
   # view
@@ -32,6 +33,7 @@ zh-TW:
     title: '任務名稱'
     content: '任務內容'
     created_at: '建立時間'
+    status: '狀態'
     start_at: '開始時間'
     end_at: '結束時間'
     new: '新增任務'

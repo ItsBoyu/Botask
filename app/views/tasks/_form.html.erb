@@ -18,6 +18,11 @@
   </div>
 
   <div>
+    <%= f.label :status %>
+    <%= f.select :status, Task.statuses.keys %>
+  </div>
+
+  <div>
     <%= f.label :start_at %>
     <%= f.datetime_field :start_at %>
   </div>
