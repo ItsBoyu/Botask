@@ -46,6 +46,7 @@ en:
       task:
         title: 'Title'
         content: 'Content'
+        created_at: 'Created_at'
         start_at: 'Start_at'
         end_at: 'End_at'
   # view
@@ -59,6 +60,11 @@ en:
     list: 'Tasks List'
     home: 'Home'
   task:
+    title: 'Title'
+    content: 'Content'
+    created_at: 'Created_at'
+    start_at: 'Start_at'
+    end_at: 'End_at'
     new: 'Create Task'
     edit: 'Edit Task'
     submit: '%{action} Task'

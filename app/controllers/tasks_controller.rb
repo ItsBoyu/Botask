@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :build_task, only: %i[new create]
 
   def index
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks = Task.all.in_sort(params[:sort_by])
   end
 
   def new; end

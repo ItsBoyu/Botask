@@ -15,6 +15,7 @@ zh-TW:
       task:
         title: '任務名稱'
         content: '任務內容'
+        created_at: '建立時間'
         start_at: '開始時間'
         end_at: '結束時間'
   # view
@@ -28,6 +29,11 @@ zh-TW:
     list: '任務列表'
     home: '首頁'
   task:
+    title: '任務名稱'
+    content: '任務內容'
+    created_at: '建立時間'
+    start_at: '開始時間'
+    end_at: '結束時間'
     new: '新增任務'
     edit: '修改任務'
     submit: '%{action}任務'
