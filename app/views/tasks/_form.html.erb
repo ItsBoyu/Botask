@@ -8,13 +8,23 @@
   <% end %>
 
   <div>
-    <%= f.label :title, t('task.title') %>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   
   <div>
-    <%= f.label :content, t('task.content') %>
+    <%= f.label :content %>
     <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :start_at %>
+    <%= f.datetime_field :start_at %>
+  </div>
+
+  <div>
+    <%= f.label :end_at %>
+    <%= f.datetime_field :end_at %>
   </div>
   
   <div>
