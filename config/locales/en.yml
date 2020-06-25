@@ -41,7 +41,6 @@ en:
           has_many: Cannot delete record because dependent %{record} exist
       models:
         task:
-          should_start_after_now: 'should after now.'
           should_start_before_end: 'should after start_at time.'
     attributes:
       task:
