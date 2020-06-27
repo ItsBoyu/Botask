@@ -6,7 +6,7 @@
 
 <%= search_form_for @q do |f| %>
   <%= f.search_field :title_cont %>
-  <%= f.select :status_eq, [['Pending', 0], ['Progress', 1], ['Done', 2]] %>
+  <%= f.select :status_eq, enum_collection('status', 'db') %>
 
   <%= f.submit %>
 <% end %>
@@ -15,7 +15,7 @@
   <% @tasks.each do |task| %>
     <div class='task'>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
-      <small><%= task.status %> </small>
+      <small><%= t_enum("status", task.status) %> </small>
       <%= task.content %> |
       <%= task.start_at.strftime("%m-%d-%Y") %> |
       <%= task.end_at.strftime("%m-%d-%Y") %> |

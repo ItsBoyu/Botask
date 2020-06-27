@@ -34,6 +34,10 @@ zh-TW:
     content: '任務內容'
     created_at: '建立時間'
     status: '狀態'
+    statuses:
+      pending: '待處理'
+      progress: '進行中'
+      done: '已完成'
     start_at: '開始時間'
     end_at: '結束時間'
     new: '新增任務'

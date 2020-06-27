@@ -19,7 +19,7 @@
 
   <div>
     <%= f.label :status %>
-    <%= f.select :status, Task.statuses.keys %>
+    <%= f.select :status, enum_collection('status', 'form') %>
   </div>
 
   <div>

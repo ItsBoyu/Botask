@@ -65,6 +65,10 @@ en:
     content: 'Content'
     created_at: 'Created_at'
     status: 'Status'
+    statuses:
+      pending: 'Pending'
+      progress: 'Progress'
+      done: 'Done'
     start_at: 'Start_at'
     end_at: 'End_at'
     new: 'Create Task'
