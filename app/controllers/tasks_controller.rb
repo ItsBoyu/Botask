@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   before_action :build_task, only: %i[new create]
 
   def index
-    @tasks = Task.all.in_sort(params[:sort_by])
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result.in_sort(params[:sort_by])
   end
 
   def new; end
