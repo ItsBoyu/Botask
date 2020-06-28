@@ -48,6 +48,7 @@ en:
         content: 'Content'
         created_at: 'Created_at'
         status: 'Status'
+        priority: 'Priority'
         start_at: 'Start_at'
         end_at: 'End_at'
   # view
@@ -69,6 +70,11 @@ en:
       pending: 'Pending'
       progress: 'Progress'
       done: 'Done'
+    priority: 'Priority'
+    priorities:
+      low: 'Low'
+      medium: 'Midium'
+      high: 'High'
     start_at: 'Start_at'
     end_at: 'End_at'
     new: 'Create Task'
