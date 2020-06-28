@@ -106,4 +106,58 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
       end
     end
   end
+
+  describe 'Tasks search' do
+    before do
+      visit root_path
+    end
+
+    context 'search by title' do
+      context 'when a match is found' do
+        before do
+          fill_in 'q_title_cont', with: '這'
+          click_button '搜尋'
+        end
+
+        it 'returns tasks that match the search term' do
+          expect(page).to have_content '這是必填'
+        end
+      end
+
+      context 'when no match is found' do
+        before do
+          fill_in 'q_title_cont', with: '別'
+          click_button '搜尋'
+        end
+
+        it 'returns an empty collection' do
+          expect(page).not_to have_content '這是必填'
+        end
+      end
+    end
+
+    context 'search by stauts' do
+      context 'when a match is found' do
+        before do
+          select('待處理', from: 'q_status_eq').select_option
+          click_button '搜尋'
+        end
+
+        it 'returns tasks that match the search term' do
+          expect(page).to have_content '這是必填'
+        end
+      end
+
+      context 'when no match is found' do
+        before do
+          select('已完成', from: 'q_status_eq').select_option
+          click_button '搜尋'
+        end
+
+        it 'returns an empty collection' do
+          expect(page).not_to have_content '這是必填'
+        end
+      end
+    end
+  end
 end
