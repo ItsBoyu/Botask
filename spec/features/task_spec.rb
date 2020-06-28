@@ -73,9 +73,9 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
 
   describe 'Tasks sort' do
     before do
-      Task.create(title: 'old', start_at: Time.now, end_at: Time.now + 5.days)
+      Task.create(title: 'old', start_at: Time.now, end_at: Time.now + 5.days, priority: 1)
       Timecop.travel(Date.today + 5)
-      Task.create(title: 'new', start_at: Time.now, end_at: Time.now + 5.days)
+      Task.create(title: 'new', start_at: Time.now, end_at: Time.now + 5.days, priority: 2)
       Timecop.return
       visit root_path
     end
@@ -96,12 +96,27 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         click_link I18n.t('task.end_at'), { href: "/tasks?sort_by=end_at" }
       end
 
-      it 'new one is on the top' do
+      it 'old one is on the top' do
         within 'div.task:nth-child(2)' do
           expect(page).to have_text('old')
         end
         within 'div.task:nth-child(3)' do
           expect(page).to have_text('new')
+        end
+      end
+    end
+
+    context 'Order by priority' do
+      before do
+        click_link I18n.t('task.priority'), { href: "/tasks?sort_by=priority+desc" }
+      end
+
+      it 'new one is on the top' do
+        within 'div.task:nth-child(1)' do
+          expect(page).to have_text('new')
+        end
+        within 'div.task:nth-child(2)' do
+          expect(page).to have_text('old')
         end
       end
     end
