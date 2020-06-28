@@ -25,9 +25,12 @@
       <%= link_to t('delete'), task_path(task.id), method: 'delete' %>
     </div>
   <% end %>
+</div>
 
+<div>
   <%= link_to t('add'), new_task_path %>
 </div>
+<%= paginate @tasks %>
 
 
 

@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
   def index
     @q = Task.ransack(params[:q])
-    @tasks = @q.result.in_sort(params[:sort_by])
+    @tasks = @q.result.in_sort(params[:sort_by]).page(params[:page]).per(10)
   end
 
   def new; end
