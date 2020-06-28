@@ -23,6 +23,11 @@
   </div>
 
   <div>
+    <%= f.label :priority %>
+    <%= f.select :priority, form_enums('priority') %>
+  </div>
+
+  <div>
     <%= f.label :start_at %>
     <%= f.datetime_field :start_at %>
   </div>

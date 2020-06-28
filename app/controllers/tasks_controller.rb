@@ -45,7 +45,8 @@ class TasksController < ApplicationController
                                  :content,
                                  :start_at,
                                  :end_at,
-                                 :status)
+                                 :status,
+                                 :priority)
   end
 
   def find_task

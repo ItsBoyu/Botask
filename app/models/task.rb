@@ -2,6 +2,7 @@
 
 class Task < ApplicationRecord
   enum status: %i[pending progress done]
+  enum priority: %i[low medium high]
 
   validate  :start_before_end
   validates :title, :start_at, :end_at, :status, presence: true
