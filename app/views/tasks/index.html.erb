@@ -1,7 +1,8 @@
 <h1><%= link_to t('tasks.list'), root_path %></h1>
 
 <small>排序方式：<%= link_to t('task.created_at'), tasks_path(sort_by: 'created_at desc') %> |
-               <%= link_to t('task.end_at'), tasks_path(sort_by: 'end_at') %>
+               <%= link_to t('task.end_at'), tasks_path(sort_by: 'end_at') %> |
+               <%= link_to t('task.priority'), tasks_path(sort_by: 'priority desc') %>
 </small>
 
 <%= search_form_for @q do |f| %>
