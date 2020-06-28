@@ -15,7 +15,8 @@
   <% @tasks.each do |task| %>
     <div class='task'>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
-      <small><%= t_enum("status", task.status) %> </small>
+      <small><%= t_enum("status", task.status) %> </small> |
+      <small><%= t_enum("priority", task.priority) %> </small> |
       <%= task.content %> |
       <%= task.start_at.strftime("%m-%d-%Y") %> |
       <%= task.end_at.strftime("%m-%d-%Y") %> |
