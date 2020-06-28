@@ -12,8 +12,8 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         click_link I18n.t('add')
         fill_in 'task_title', with: '新增任務名稱'
         fill_in 'task_content', with: '新增任務內容'
-        fill_in 'task_start_at', with: Time.zone.parse(Time.now.to_s)
-        fill_in 'task_end_at', with: Time.zone.parse((Time.now + 5.days).to_s)
+        fill_in 'task_start_at', with: Time.now
+        fill_in 'task_end_at', with: Time.now + 5.days
         click_button I18n.t('task.submit', action: I18n.t('Create'))
       end
 

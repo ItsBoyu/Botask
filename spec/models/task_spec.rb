@@ -2,13 +2,6 @@
 
 require 'rails_helper'
 
-  # 常數
-  # 關聯
-  # 驗證
-  # Scope
-  # 類別方法
-  # 實體方法
-
 RSpec.describe 'Task', type: :model, driver: :selenium_chrome, js: true do
   describe 'Model validate' do
     let!(:task) { Task.new(title: '完整填寫',
