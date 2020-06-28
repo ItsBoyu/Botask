@@ -18,6 +18,11 @@
   </div>
 
   <div>
+    <%= f.label :status %>
+    <%= f.select :status, form_enums('status') %>
+  </div>
+
+  <div>
     <%= f.label :start_at %>
     <%= f.datetime_field :start_at %>
   </div>
@@ -30,5 +35,4 @@
   <div>
     <%= f.submit t('task.submit', action: action) %>
   </div>
-  
 <% end %>

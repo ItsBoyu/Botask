@@ -12,8 +12,8 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         click_link I18n.t('add')
         fill_in 'task_title', with: '新增任務名稱'
         fill_in 'task_content', with: '新增任務內容'
-        fill_in 'task_start_at', with: Time.zone.parse(Time.now.to_s)
-        fill_in 'task_end_at', with: Time.zone.parse((Time.now + 5.days).to_s)
+        fill_in 'task_start_at', with: Time.now
+        fill_in 'task_end_at', with: Time.now + 5.days
         click_button I18n.t('task.submit', action: I18n.t('Create'))
       end
 
@@ -102,6 +102,60 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
         end
         within 'div.task:nth-child(3)' do
           expect(page).to have_text('new')
+        end
+      end
+    end
+  end
+
+  describe 'Tasks search' do
+    before do
+      visit root_path
+    end
+
+    context 'search by title' do
+      context 'when a match is found' do
+        before do
+          fill_in 'q_title_cont', with: '這'
+          click_button '搜尋'
+        end
+
+        it 'returns tasks that match the search term' do
+          expect(page).to have_content '這是必填'
+        end
+      end
+
+      context 'when no match is found' do
+        before do
+          fill_in 'q_title_cont', with: '別'
+          click_button '搜尋'
+        end
+
+        it 'returns an empty collection' do
+          expect(page).not_to have_content '這是必填'
+        end
+      end
+    end
+
+    context 'search by stauts' do
+      context 'when a match is found' do
+        before do
+          select('待處理', from: 'q_status_eq').select_option
+          click_button '搜尋'
+        end
+
+        it 'returns tasks that match the search term' do
+          expect(page).to have_content '這是必填'
+        end
+      end
+
+      context 'when no match is found' do
+        before do
+          select('已完成', from: 'q_status_eq').select_option
+          click_button '搜尋'
+        end
+
+        it 'returns an empty collection' do
+          expect(page).not_to have_content '這是必填'
         end
       end
     end

@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   before_action :build_task, only: %i[new create]
 
   def index
-    @tasks = Task.all.in_sort(params[:sort_by])
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result.in_sort(params[:sort_by])
   end
 
   def new; end
@@ -43,7 +44,8 @@ class TasksController < ApplicationController
     params.require(:task).permit(:title,
                                  :content,
                                  :start_at,
-                                 :end_at)
+                                 :end_at,
+                                 :status)
   end
 
   def find_task

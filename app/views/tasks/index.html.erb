@@ -1,13 +1,21 @@
-<h1><%= t('tasks.list') %></h1>
+<h1><%= link_to t('tasks.list'), root_path %></h1>
 
 <small>排序方式：<%= link_to t('task.created_at'), tasks_path(sort_by: 'created_at desc') %> |
                <%= link_to t('task.end_at'), tasks_path(sort_by: 'end_at') %>
 </small>
 
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :title_cont %>
+  <%= f.select :status_eq, search_enums('status') %>
+
+  <%= f.submit %>
+<% end %>
+
 <div>
   <% @tasks.each do |task| %>
     <div class='task'>
       <h3><%= link_to task.title, task_path(task.id) %></h3>
+      <small><%= t_enum("status", task.status) %> </small>
       <%= task.content %> |
       <%= task.start_at.strftime("%m-%d-%Y") %> |
       <%= task.end_at.strftime("%m-%d-%Y") %> |
