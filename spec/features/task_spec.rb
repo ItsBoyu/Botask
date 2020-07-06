@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
-  let!(:task) { Task.create(title: '這是必填', start_at: Time.now, end_at: Time.now + 5.days) }
+  let!(:user) { User.create }
+  let!(:task) { user.tasks.create(title: '這是必填', start_at: Time.now, end_at: Time.now + 5.days) }
 
   describe 'Basic CRUD' do
     context 'Task Create' do
@@ -73,9 +74,9 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
 
   describe 'Tasks sort' do
     before do
-      Task.create(title: 'old', start_at: Time.now, end_at: Time.now + 5.days, priority: 1)
+      user.tasks.create(title: 'old', start_at: Time.now, end_at: Time.now + 5.days, priority: 1)
       Timecop.travel(Date.today + 5)
-      Task.create(title: 'new', start_at: Time.now, end_at: Time.now + 5.days, priority: 2)
+      user.tasks.create(title: 'new', start_at: Time.now, end_at: Time.now + 5.days, priority: 2)
       Timecop.return
       visit root_path
     end

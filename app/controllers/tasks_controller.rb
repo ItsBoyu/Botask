@@ -54,6 +54,6 @@ class TasksController < ApplicationController
   end
 
   def build_task
-    @task = Task.new
+    @task = User.first.tasks.new
   end
 end

@@ -4,11 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'Task', type: :model, driver: :selenium_chrome, js: true do
   describe 'Model validate' do
-    let!(:task) { Task.new(title: '完整填寫',
-                           content: '完整填寫',
-                           start_at: "#{Time.now}",
-                           end_at: "#{Time.now + 5.days}"
-                          ) }
+    let(:user) { User.create }
+    let!(:task) { user.tasks.new(title: '完整填寫',
+                                 content: '完整填寫',
+                                 start_at: "#{Time.now}",
+                                 end_at: "#{Time.now + 5.days}",
+                                ) }
 
     context 'When pass the validation' do
       it 'is valid to have a title, content, start_at and end_at' do
