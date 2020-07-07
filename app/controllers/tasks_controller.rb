@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :build_task, only: %i[new create]
 
   def index
-    @q = Task.ransack(params[:q])
+    @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result.in_sort(params[:sort_by]).includes(:user).page(params[:page]).per(10)
   end
 
@@ -54,6 +54,6 @@ class TasksController < ApplicationController
   end
 
   def build_task
-    @task = User.first.tasks.new
+    @task = current_user.tasks.new
   end
 end
