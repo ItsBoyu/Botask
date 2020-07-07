@@ -1,4 +1,5 @@
 class Users::RegistrationsController < ApplicationController
+  skip_before_action :check_login
   before_action :build_user, only: %i[new create]
 
   def new; end
