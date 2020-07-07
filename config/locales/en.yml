@@ -51,6 +51,10 @@ en:
         priority: 'Priority'
         start_at: 'Start_at'
         end_at: 'End_at'
+      user:
+        email: 'Email'
+        password: 'Password'
+        name: 'Name'
   helpers:
     page_entries_info:
       more_pages:
@@ -100,3 +104,14 @@ en:
     created: 'You create a task succesfully!'
     updated: 'You update the task succesfully!'
     deleted: 'You delete the task succesfully!'
+  user:
+    email: 'Email'
+    password: 'Password'
+    password_confirmation: 'Password_confirmation'
+    name: 'Name'
+    registrations: 'Registrations'
+    login: 'Login'
+  # notice
+    created: 'You registered succesfully!'
+    loggedin: 'You logged in succesfully'
+
