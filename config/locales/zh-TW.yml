@@ -3,6 +3,7 @@ zh-TW:
   # model
   activerecord:
     errors:
+      format: "%{attribute} %{message}"
       messages:
         record_invalid: '校驗失敗: %{errors}'
         restrict_dependent_destroy:
@@ -20,6 +21,10 @@ zh-TW:
         priority: '優先次序'
         start_at: '開始時間'
         end_at: '結束時間'
+      user:
+        email: '電子信箱'
+        password: '密碼'
+        name: '名稱'
   helpers:
     page_entries_info:
       more_pages:
@@ -69,3 +74,13 @@ zh-TW:
     created: '成功新增任務！'
     updated: '成功修改任務！'
     deleted: '成功刪除任務！'
+  user:
+    email: '電子信箱'
+    password: '密碼'
+    password_confirmation: '密碼確認'
+    name: '名稱'
+    registrations: '註冊'
+    login: '登入'
+  # 提示訊息
+    created: '註冊成功!'
+    loggedin: '登入成功'

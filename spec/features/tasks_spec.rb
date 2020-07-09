@@ -3,8 +3,15 @@
 require 'rails_helper'
 
 RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
-  let!(:user) { User.create }
+  let(:user) { User.create(email: 'rspec@botask.com', password: '123456', name: 'rspec') }
   let!(:task) { user.tasks.create(title: '這是必填', start_at: Time.now, end_at: Time.now + 5.days) }
+
+  before do
+    visit root_path
+    fill_in 'user_email', with: 'rspec@botask.com'
+    fill_in 'user_password', with: '123456'
+    click_button I18n.t('user.login')
+  end
 
   describe 'Basic CRUD' do
     context 'Task Create' do

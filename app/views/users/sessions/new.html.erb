@@ -1,0 +1,25 @@
+<h1>登入</h1>
+
+<%= form_with model: @user, url: users_log_in_path ,local: true do |f| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  
+  <div>
+    <%= f.submit t('user.login') %>
+  </div>
+<% end %>
