@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def check_login
-    redirect_to users_log_in_path if not current_user
+    redirect_to users_log_in_path unless current_user
   end
 
   def current_user

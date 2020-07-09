@@ -1,30 +1,34 @@
-class Users::RegistrationsController < ApplicationController
-  skip_before_action :check_login
-  before_action :build_user, only: %i[new create]
+# frozen_string_literal: true
 
-  def new; end
+module Users
+  class RegistrationsController < ApplicationController
+    skip_before_action :check_login
+    before_action :build_user, only: %i[new create]
 
-  def create
-    @user.assign_attributes(user_params)
+    def new; end
 
-    if @user.save
-      session[:current_user_id] = @user.id
-      redirect_to root_path, notice: t('user.created')
-    else
-      render :new
+    def create
+      @user.assign_attributes(user_params)
+
+      if @user.save
+        session[:current_user_id] = @user.id
+        redirect_to root_path, notice: t('user.created')
+      else
+        render :new
+      end
     end
-  end
 
-  private
+    private
 
-  def user_params
-    params.require(:user).permit(:email,
-                                 :password,
-                                 :password_confirmation,
-                                 :name)
-  end
+    def user_params
+      params.require(:user).permit(:email,
+                                   :password,
+                                   :password_confirmation,
+                                   :name)
+    end
 
-  def build_user
-    @user = User.new
+    def build_user
+      @user = User.new
+    end
   end
 end
