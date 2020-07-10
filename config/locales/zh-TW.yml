@@ -74,6 +74,9 @@ zh-TW:
     created: '成功新增任務！'
     updated: '成功修改任務！'
     deleted: '成功刪除任務！'
+  users:
+    list: '使用者列表'
+    home: '首頁'
   user:
     email: '電子信箱'
     password: '密碼'
