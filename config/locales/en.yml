@@ -104,6 +104,9 @@ en:
     created: 'You create a task succesfully!'
     updated: 'You update the task succesfully!'
     deleted: 'You delete the task succesfully!'
+  users:
+    list: 'Users List'
+    home: 'Home'
   user:
     email: 'Email'
     password: 'Password'

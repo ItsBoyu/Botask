@@ -1,0 +1,9 @@
+<h2><%= t('user.name') %>： <%= @user.name %></h2>
+  <% @user.tasks.each do |task| %>
+    <ul>
+      <li>
+        <%= task.title %>
+      </li>
+    </ul>
+  <% end %>
+<%= link_to t('users.home'), admin_users_path %>
