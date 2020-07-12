@@ -42,6 +42,8 @@ en:
       models:
         task:
           should_start_before_end: 'should after start_at time.'
+        base:
+          the_last_admin: 'must have at least admin'
     attributes:
       task:
         title: 'Title'
@@ -55,6 +57,7 @@ en:
         email: 'Email'
         password: 'Password'
         name: 'Name'
+        admin: 'Admin'
   helpers:
     page_entries_info:
       more_pages:
@@ -77,6 +80,11 @@ en:
   delete: 'delete'
   Create: 'Create'
   Update: 'Update'
+  change_authority: 'Change authority'
+  member: 'member'
+  admin: 'admin'
+  # notice
+  no_authority: "you don't have authority!"
   # task
   tasks:
     list: 'Tasks List'

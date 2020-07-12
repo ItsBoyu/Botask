@@ -3,7 +3,8 @@
 module Admin
   class UsersController < ApplicationController
     skip_before_action :check_login
-    before_action :find_user, only: %i[show edit update destroy]
+    before_action :check_authority
+    before_action :find_user, only: %i[show edit update destroy change_authority]
     before_action :build_user, only: %i[new create]
 
     def index
@@ -39,6 +40,16 @@ module Admin
       redirect_to admin_users_path
     end
 
+    def change_authority
+      if @user.is_admin?
+        User.admin.size <= 1 ? @user : @user.is_admin = false
+      else
+        @user.is_admin = true
+      end
+      @user.save
+      redirect_to admin_users_path
+    end
+
     private
 
     def user_params
@@ -54,6 +65,10 @@ module Admin
 
     def build_user
       @user = User.new
+    end
+
+    def check_authority
+      redirect_to root_path, notice: t('no_authority') unless current_user&.is_admin?
     end
   end
 end
