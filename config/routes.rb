@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users
+    resources :users do
+      member do
+        post :change_authority
+      end
+    end
   end
 
   resources :tasks
