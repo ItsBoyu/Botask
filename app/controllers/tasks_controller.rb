@@ -13,7 +13,6 @@ class TasksController < ApplicationController
 
   def create
     @task.assign_attributes(task_params)
-
     if @task.save
       redirect_to tasks_path, notice: t('task.created')
     else
@@ -46,7 +45,8 @@ class TasksController < ApplicationController
                                  :start_at,
                                  :end_at,
                                  :status,
-                                 :priority)
+                                 :priority,
+                                 :tag_list)
   end
 
   def find_task
