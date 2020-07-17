@@ -7,6 +7,7 @@
 
 <%= search_form_for @q do |f| %>
   <%= f.search_field :title_cont %>
+  <%= f.search_field :tags_name_cont %>
   <%= f.select :status_eq, search_enums('status') %>
 
   <%= f.submit %>
