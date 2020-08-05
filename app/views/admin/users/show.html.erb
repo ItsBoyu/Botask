@@ -1,9 +1,11 @@
-<h2><%= t('user.name') %>： <%= @user.name %></h2>
+<h2 class='my-3'><%= @user.name %></h2>
   <% @user.tasks.each do |task| %>
-    <ul>
-      <li>
+    <ul class='nav flex-column'>
+      <li class='nav-item'>
         <%= task.title %>
       </li>
     </ul>
   <% end %>
-<%= link_to t('users.home'), admin_users_path %>
+<div class="my-2">
+  <%= lineless_link_to(t('return'), admin_users_path) %>
+</div>

@@ -1,11 +1,15 @@
-<h2><%= t('task.title') %>： <%= @task.title %></h2>
-<p><%= t('task.content') %>： <%= @task.content %></p>
+<h2 class='my-3'>
+  <%= @task.title %>
+</h2>
+<p class='my-3'><%= @task.content %></p>
 <ul>
   <li>
-    <%= t('task.start_at') %>： <%= @task.start_at.strftime("%m-%d-%Y %H：%M") %>
+    <%= t('task.start_at') %>： <%= @task.start_at.strftime('%m-%d-%Y') %>
   </li>
   <li>
-    <%= t('task.end_at') %>： <%= @task.end_at.strftime("%m-%d-%Y %H：%M") %>
+    <%= t('task.end_at') %>： <%= @task.end_at.strftime('%m-%d-%Y') %>
   </li>
 </ul>
-<%= link_to t('tasks.home'), root_path %>
+<div class="my-2">
+  <%= lineless_link_to(t('return'), tasks_path) %>
+</div>

@@ -1,35 +1,40 @@
-<h1>新增使用者</h1>
+<h2 class="my-3"><%= t('user.new') %></h2>
 
-<%= form_with model: @user, url: users_sign_up_path ,local: true do |f| %>
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.label :password_confirmation, t('user.password_confirmation') %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div class="col-2">
+  <%= form_with model: @user, url: admin_users_path,local: true do |f| %>
+    <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
   
-  <div>
-    <%= f.submit t('add') %>
-  </div>
-<% end %>
+    <div>
+      <%= f.label :email, class: 'form-label' %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+  
+    <div>
+      <%= f.label :password, class: 'form-label' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+  
+    <div>
+      <%= f.label :password_confirmation, t('user.password_confirmation'), class: 'form-label' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+  
+    <div>
+      <%= f.label :name, class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    
+    <div>
+      <%= f.submit t('add'), class: 'btn btn-info my-2' %>
+    </div>
+  <% end %>
+</div>
+<div class="my-2">
+  <%= lineless_link_to(t('return'), admin_users_path) %>
+</div>

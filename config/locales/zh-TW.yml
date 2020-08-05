@@ -28,6 +28,8 @@ zh-TW:
         password: '密碼'
         name: '名稱'
         admin: '管理者權限'
+      tag:
+        name: '標籤'
   helpers:
     page_entries_info:
       more_pages:
@@ -45,6 +47,8 @@ zh-TW:
       previous: "&lsaquo; 上一頁"
       truncate: "&hellip;"
   # view
+  the_last_admin: '至少需要一位管理員'
+  return: '返回'
   add: '新增'
   edit: '修改'
   delete: '刪除'
@@ -53,12 +57,13 @@ zh-TW:
   change_authority: '調整權限'
   member: '一般使用者'
   admin: '管理員'
+  tag_list: '標籤'
   # notice
   no_authority: '權限不足！'
   # 任務
   tasks:
     list: '任務列表'
-    home: '首頁'
+    numbers: '任務數量'
   task:
     title: '任務名稱'
     content: '任務內容'
@@ -75,6 +80,7 @@ zh-TW:
       high: '高'
     start_at: '開始時間'
     end_at: '結束時間'
+    tags: '標籤'
     new: '新增任務'
     edit: '修改任務'
     submit: '%{action}任務'
@@ -84,7 +90,6 @@ zh-TW:
     deleted: '成功刪除任務！'
   users:
     list: '使用者列表'
-    home: '首頁'
   user:
     email: '電子信箱'
     password: '密碼'
@@ -92,6 +97,9 @@ zh-TW:
     name: '名稱'
     registrations: '註冊'
     login: '登入'
+    logout: '登出'
+    new: '新增使用者'
+    edit: '修改使用者'
   # 提示訊息
     created: '註冊成功!'
     loggedin: '登入成功'

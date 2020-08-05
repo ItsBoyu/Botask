@@ -28,6 +28,8 @@ module Users
     end
 
     def build_user
+      return redirect_to root_path if session[:current_user_id].present?
+      
       @user = User.new
     end
   end

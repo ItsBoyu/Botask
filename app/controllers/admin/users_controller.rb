@@ -42,7 +42,7 @@ module Admin
 
     def change_authority
       if @user.is_admin?
-        User.admin.size <= 1 ? @user : @user.is_admin = false
+        User.admin.size <= 1 ? flash[:alert] = t('the_last_admin') : @user.is_admin = false
       else
         @user.is_admin = true
       end
@@ -68,7 +68,7 @@ module Admin
     end
 
     def check_authority
-      redirect_to root_path, notice: t('no_authority') unless current_user&.is_admin?
+      redirect_to root_path, alert: t('no_authority') unless current_user&.is_admin?
     end
   end
 end

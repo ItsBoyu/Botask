@@ -1,25 +1,27 @@
-<h1>登入</h1>
+<h2 class="my-3"><%= t('user.login') %></h2>
 
-<%= form_with model: @user, url: users_log_in_path ,local: true do |f| %>
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="col-2">
+  <%= form_with model: @user, url: users_log_in_path ,local: true do |f| %>
+    <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div>
+      <%= f.label :email, class: 'form-label' %>
+      <%= f.text_field :email, class: 'form-control mb-2' %>
+    </div>
+
+    <div>
+      <%= f.label :password, class: 'form-label' %>
+      <%= f.password_field :password, class: 'form-control mb-2' %>
+    </div>
+    
+    <div>
+      <%= f.submit t('user.login'), class: 'btn btn-info my-2' %>
+    </div>
   <% end %>
-
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  
-  <div>
-    <%= f.submit t('user.login') %>
-  </div>
-<% end %>
+</div>

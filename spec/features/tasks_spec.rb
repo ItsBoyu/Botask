@@ -44,8 +44,8 @@ RSpec.feature 'Tasks', type: :feature, driver: :selenium_chrome, js: true do
       it 'User views the task' do
         expect(page).to have_text(task.title)
         expect(page).to have_text(task.content)
-        expect(page).to have_text(task.start_at.strftime("%m-%d-%Y %H：%M"))
-        expect(page).to have_text(task.end_at.strftime("%m-%d-%Y %H：%M"))
+        expect(page).to have_text(task.start_at.strftime("%m-%d-%Y"))
+        expect(page).to have_text(task.end_at.strftime("%m-%d-%Y"))
       end
     end
 

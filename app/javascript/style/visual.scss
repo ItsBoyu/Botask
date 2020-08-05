@@ -1,0 +1,11 @@
+$main-light: #254484;
+$main-dark: #08184a;
+
+.btn-info {
+  background-color: $main-light;
+  border-color: $main-light;
+}
+
+.btn-info:hover {
+  background-color:$main-dark;
+}

@@ -1,21 +1,22 @@
-<h1><%= link_to t('users.list'), admin_users_path %></h1>
+<div class="col-6 overflow-hidden">
+  <h2 class='my-3'><%= t('users.list') %></h2>
+  
+  <div class="users-group">
+    <% @users.each do |user| %>
+      <div class='user border rounded-lg px-3 py-2 my-2'>
+        <h3 class="d-inline-block mr-2 pt-2"><%= lineless_link_to(user.name, admin_user_path(user.id)) %></h3>     
+          <%= link_to t('edit'), edit_admin_user_path(user.id), class: 'btn btn-light' %> 
+          <%= link_to t('delete'), admin_user_path(user.id), method: 'delete', class: 'btn btn-light' %>
+          <%= link_to t('change_authority'), change_authority_admin_user_path(user.id), method: 'post', class: 'btn btn-light' %>
+        <p>
+          <%= authority(user) %>
+          <%= t('tasks.number') %>：<%= user.tasks.count %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 
-<div>
-  <% @users.each do |user| %>
-    <div class='users'>
-      <h3><%= link_to user.name, admin_user_path(user.id) %></h3>
-      <%= authority(user) %>
-      <%= user.tasks.count %> |
-      <%= link_to t('edit'), edit_admin_user_path(user.id) %> |
-      <%= link_to t('delete'), admin_user_path(user.id), method: 'delete' %>
-      <%= link_to t('change_authority'), change_authority_admin_user_path(user.id), method: 'post' %>
-    </div>
-  <% end %>
+  <div>
+    <%= link_to t('add'), new_admin_user_path, class: 'btn btn-info' %>
+  </div>
 </div>
-
-<div>
-  <%= link_to t('add'), new_admin_user_path %>
-</div>
-
-
-<%= link_to '登出', users_log_out_path, method: :delete %>
