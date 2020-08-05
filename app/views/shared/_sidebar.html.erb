@@ -1,0 +1,12 @@
+<div class="my-3">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <%= link_to t('tasks.list'), tasks_path, class: 'text-decoration-none text-white nav-link my-1' %>
+    </li>
+    <% if current_user&.is_admin? %>
+    <li class="nav-item">
+      <%= link_to t('users.list'), admin_users_path, class: 'text-decoration-none text-white nav-link my-1' %>
+    </li>
+    <% end %>
+  </ul>
+</div>

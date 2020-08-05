@@ -5,6 +5,8 @@ module Users
     skip_before_action :check_login
 
     def new
+      return redirect_to root_path if session[:current_user_id].present?
+
       @user = User.new
     end
 

@@ -1,36 +1,52 @@
-<h1><%= link_to t('tasks.list'), root_path %></h1>
-
-<small>排序方式：<%= link_to t('task.created_at'), tasks_path(sort_by: 'created_at desc') %> |
-               <%= link_to t('task.end_at'), tasks_path(sort_by: 'end_at') %> |
-               <%= link_to t('task.priority'), tasks_path(sort_by: 'priority desc') %>
-</small>
-
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :title_cont %>
-  <%= f.search_field :tags_name_cont %>
-  <%= f.select :status_eq, search_enums('status') %>
-
-  <%= f.submit %>
-<% end %>
-
-<div>
-  <% @tasks.each do |task| %>
-    <div class='task'>
-      <h3><%= link_to task.title, task_path(task.id) %></h3>
-      <small><%= t_enum("status", task.status) %> </small> |
-      <small><%= t_enum("priority", task.priority) %> </small> |
-      <%= task.content %> |
-      <%= task.start_at.strftime("%m-%d-%Y") %> |
-      <%= task.end_at.strftime("%m-%d-%Y") %> |
-      <%= link_to t('edit'), edit_task_path(task.id) %> |
-      <%= link_to t('delete'), task_path(task.id), method: 'delete' %>
-    </div>
-  <% end %>
+<div class="col-6">
+  <h2 class='my-3'><%= t('tasks.list') %></h2>
+  
+  <div class="search-form my-2">
+    <%= search_form_for @q, class: 'row' do |f| %>
+      <div class='col-4'>
+        <%= f.search_field :title_cont, class: 'form-control', placeholder: t('task.title') %>
+      </div>
+  
+      <div class='col-4'>
+        <%= f.search_field :tags_name_cont, class: 'form-control', placeholder: t('task.tags') %>
+      </div>
+  
+      <div class='col-3'>
+        <%= f.select :status_eq, search_enums('status'), {}, class: 'form-select' %>
+      </div>
+    
+      <div class='col-1'>
+        <%= f.submit class: 'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
+  
+  <small class='d-block text-right mt-3'>
+    排序方式：
+    <%= lineless_link_to(t('task.created_at'), tasks_path(sort_by: 'created_at desc')) %> |
+    <%= lineless_link_to(t('task.end_at'), tasks_path(sort_by: 'end_at')) %> |
+    <%= lineless_link_to(t('task.priority'), tasks_path(sort_by: 'priority desc')) %>
+  </small>
+  
+  <div class="tasks-group">
+    <% @tasks.each do |task| %>
+      <div class='task border rounded-lg px-3 py-2 my-2'>
+        <h3 class="d-inline-block mr-2 pt-2"><%= lineless_link_to(task.title, task_path(task.id)) %></h3>
+        <small class='badge bg-warning align-text-bottom mb-1'><%= t_enum("status", task.status) %> </small> 
+        <small class='badge bg-danger align-text-bottom mb-1'><%= t_enum("priority", task.priority) %> </small>
+        <p>
+          <%= task.start_at.strftime("%m-%d-%Y") %> -
+          <%= task.end_at.strftime("%m-%d-%Y") %> 
+          <%= link_to t('edit'), edit_task_path(task.id), class: 'btn btn-light' %> 
+          <%= link_to t('delete'), task_path(task.id), method: 'delete', class: 'btn btn-light' %>
+        </p>
+        <p><%= task.content %></p>
+      </div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= link_to t('add'), new_task_path, class: 'btn btn-info' %>
+  </div>
+  <%= paginate @tasks %>
 </div>
-
-<div>
-  <%= link_to t('add'), new_task_path %>
-</div>
-<%= paginate @tasks %>
-
-<%= link_to '登出', users_log_out_path, method: :delete %>

@@ -58,6 +58,8 @@ en:
         password: 'Password'
         name: 'Name'
         admin: 'Admin'
+      tag:
+        name: 'Tag_Name'
   helpers:
     page_entries_info:
       more_pages:
@@ -75,6 +77,8 @@ en:
       previous: "&lsaquo; Prev"
       truncate: "&hellip;"
   # view
+  the_last_admin: 'must have at least admin'
+  return: 'Back'
   add: 'add'
   edit: 'edit'
   delete: 'delete'
@@ -83,12 +87,13 @@ en:
   change_authority: 'Change authority'
   member: 'member'
   admin: 'admin'
+  tag_list: 'Tag List'
   # notice
   no_authority: "you don't have authority!"
   # task
   tasks:
     list: 'Tasks List'
-    home: 'Home'
+    numbers: 'Tasks Number'
   task:
     title: 'Title'
     content: 'Content'
@@ -105,6 +110,7 @@ en:
       high: 'High'
     start_at: 'Start_at'
     end_at: 'End_at'
+    tags: 'Tags'
     new: 'Create Task'
     edit: 'Edit Task'
     submit: '%{action} Task'
@@ -114,7 +120,6 @@ en:
     deleted: 'You delete the task succesfully!'
   users:
     list: 'Users List'
-    home: 'Home'
   user:
     email: 'Email'
     password: 'Password'
@@ -122,6 +127,9 @@ en:
     name: 'Name'
     registrations: 'Registrations'
     login: 'Login'
+    logout: 'Logout'
+    new: 'Create User'
+    edit: 'Edit User'
   # notice
     created: 'You registered succesfully!'
     loggedin: 'You logged in succesfully'

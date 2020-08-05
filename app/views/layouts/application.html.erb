@@ -10,7 +10,17 @@
   </head>
 
   <body>
-    <%= notice %>
-    <%= yield %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flash' %>
+    <div class='container-fluid d-flex p-0'>
+      <% if current_user.present? %>
+        <div class="col-2 sidebar">
+          <%= render 'shared/sidebar' %>
+        </div>
+      <% end %>
+      <div class="col-10 pl-5">
+        <%= yield %> 
+      </div>   
+    </div>
   </body>
 </html>

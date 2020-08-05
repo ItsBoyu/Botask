@@ -1,2 +1,8 @@
-<h1><%= t('task.edit') %></h1>
-<%= render "form", task: @task, action: t("Update") %>
+<h2 class="my-3"><%= t('task.edit') %></h2>
+<div class="col-2">
+  <%= render "form", task: @task, action: t("Update") %>
+</div>
+
+<div class="my-2">
+  <%= lineless_link_to(t('return'), tasks_path) %>
+</div>
