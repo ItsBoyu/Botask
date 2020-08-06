@@ -10,7 +10,7 @@
           <%= link_to t('change_authority'), change_authority_admin_user_path(user.id), method: 'post', class: 'btn btn-light' %>
         <p>
           <%= authority(user) %>
-          <%= t('tasks.number') %>：<%= user.tasks.count %>
+          <%= t('tasks.numbers') %>：<%= user.tasks.count %>
         </p>
       </div>
     <% end %>

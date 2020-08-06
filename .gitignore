@@ -43,3 +43,5 @@ yarn-debug.log*
 # rubocop
 /.rubocop.yml
 /.rubocop_todo.yml
+# Ignore application configuration
+/config/application.yml
